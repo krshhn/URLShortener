@@ -25,5 +25,5 @@ Might add it later.
 
 ## Troubleshooting
 
-Discord: isthisguts
+Discord: krshhn
 
