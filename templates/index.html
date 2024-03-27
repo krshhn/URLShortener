@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URLShortener</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1 style="text-align: center;">
+      URLShortener
+    </h1>
+        <div class="container mt-3">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger">{{ message }}
+            </div>
+        {% endfor %}
+        </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+           
+    <form method="post" action="{{url_for('index')}}">
+      
+      <div class="form-floating mb-3">
+       <input class="form-control" type="text" name="url" id="url" placeholder="Enter URL" value="{{ request.form['url'] }}" autofocus></input>
+       <label for="url">URL</label>
+       </div>
+      <div class="form-group text-center">
+      <button type="submit" class="btn btn-lg btn-primary">Shorten</button> </div>
+       
+       {% if url %}
+       Your Shortened URL is <a target="_blank" href="{{ url }}">{{ url }}</a>
+       {% endif %}
+       </div>
+    </div>
+  </body>
+</html>
